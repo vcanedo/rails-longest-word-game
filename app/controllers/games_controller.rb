@@ -24,7 +24,7 @@ class GamesController < ApplicationController
 
   def english_word
     url = "https://wagon-dictionary.herokuapp.com/#{@answer}"
-    word_dictionary = url.read
+    word_dictionary = URI.open(url).read
     word = JSON.parse(word_dictionary)
     word[:found]
   end
